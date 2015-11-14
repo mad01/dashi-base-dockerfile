@@ -12,6 +12,10 @@ RUN apt-get update -y && apt-get upgrade -y && \
         python-pip \
         python-dev
 
+RUN mkdir /opt/install
+COPY . /opt/install
+WORKDIR /opt/install
+
 RUN npm install -g bower
 RUN npm install -g react-tools
 RUN bower install --allow-root
